@@ -1,0 +1,45 @@
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;  
+}
+.full-page1
+{
+height: 100%;
+width: 100%;
+background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url('wp5684538-anime-manga-wallpapers.jpg');
+background-position: center;
+background-size: cover;
+position: absolute;
+color: white;
+}
+.table,th,td
+{
+    border: 2px solid palevioletred;
+    color: white;
+    background: transparent;
+    padding-top: 20px;
+    border: collapse;
+    text-align: center;
+    
+   
+}
+table
+{
+    width: 50%;
+    height: 100px;
+}
+.navbar
+{
+   
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-top: 150px;
+}
+#register1 th
+{
+    background: rgba(0,0,0,0.5);
+    
+}

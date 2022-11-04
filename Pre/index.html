@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="Registration.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+        body,
+        .login input,
+        ::placeholder {
+            color: #000;
+            font-family: 'Poppins';
+        }
+
+        .tb {
+            padding: 5px;
+            border-radius: 8px;
+            border: 1.5px solid #000;
+            font-size: 12px;
+            width: 200px;
+        }
+
+        .h-tag {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login input,
+        ::placeholder {
+            background: transparent;
+        }
+
+        .btn {
+            margin-top: 20px;
+            background-color: #000 !important;
+            padding: 10px;
+            border-radius: 20px;
+            color: white;
+        }
+    </style>
+    <script type="text/javascript">
+        function registrationform() {
+
+            var name = document.getElementById("firstname").value;
+            var lname = document.getElementById("lastname").value;
+            var address = document.getElementById("address").value;
+            var email = document.getElementById("email").value;
+            var pwd = document.getElementById("password").value;
+            var cpwd = document.getElementById("confirmPass").value;
+
+            var pwd_expression = /^.*(?=.{6,})(?=.*[a-zA-Z])(?=.*\d)/;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            if (name == '' && lname == '' && address == '' && email == '' && pwd == '' && cpwd == '') {
+                alert('All fields are required')
+                return false;
+            }
+            else if (name == '') {
+                alert('Enter First name');
+                return false;
+            }
+            else if (lname == '') {
+                alert('Enter Last name');
+                return false;
+            }
+            else if (address == '') {
+                alert('Enter Address');
+                return false;
+            }
+            else if (email == '') {
+                alert('Enter email');
+                return false;
+            }
+            else if(!filter.test(email)){
+                alert('invalid email');
+                return false;
+            }
+            else if (cpwd == '') {
+                alert('Enter Confirm Password');
+                return false
+            }
+            else if (!pwd_expression.test(pwd)) {
+                alert('Password is not Strong');
+                return false;
+            }
+            else if (pwd != cpwd) {
+                alert('Password not Matched');
+                return false;
+            }
+            else if (document.getElementById("pass").value.length < 6) {
+                alert('Password minimum length is 6');
+                return false;
+            }
+        }
+    </script>
+
+</head>
+
+
+<body class="bg">
+
+    <div id="main">
+        <div class="start">
+          
+            <h2>Register Your Account</h2>
+            <img src="admin.jpg" class="img" />
+      
+        
+        <div class="login">
+            <form action="Registration.php" method="post" onsubmit="registrationForm(this)">
+            
+                <table>
+                    <tr>
+                        <td align="right" for="firstname">First Name:</td>
+                        <td><input type="text" placeholder="Enter Firstname here" name="firstname" id="firstname" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right" for="lastname">Last Name:</td>
+                        <td><input type="text" placeholder="Enter Lastname here" name="lastname" id="lastname" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right" for="address">Address:</td>
+                        <td><input type="text" placeholder="Enter Address here" name="address" id="address" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right" for="email">Email Address:</td>
+                        <td><input type="text" placeholder="Enter Email Address here" name="email" id="email" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right" for="password">Password:</td>
+                        <td><input type="password" placeholder="Enter Password here" name="password" id="password" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right" for="confirmPass">Confirm Password:</td>
+                        <td><input type="password" placeholder="Enter Password here" name="confirmPass" id="confirmPass" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit" class="btn">Create Account</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
